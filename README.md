@@ -11,10 +11,10 @@ Edit CMakeLists.txt and change path to log4j jar
 
 Then to build:
 
-$ mkdir Release
-$ cd Release
-$ cmake -DCMAKE_BUILD_TYPE=Release ..
-$ make
+		$ mkdir Release
+		$ cd Release
+		$ cmake -DCMAKE_BUILD_TYPE=Release ..
+		$ make
 
 RUN
 ======
