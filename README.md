@@ -20,8 +20,8 @@ Then to build:
 RUN
 ======
 
-Small test script.  After running you should have a logfile.txt file with some logged stdout and stderr output
+Small test script.  After running you should have a logfile.out file with some logged stdout and stderr output
 
-Change path to log4j and run
+Change your path to your log4j jar in the following command and run
 
 java -Djava.library.path=.:Release/ -classpath .:Release/testJniStdio.jar:/Users/marc/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar testJniStdio.testJniStdio
