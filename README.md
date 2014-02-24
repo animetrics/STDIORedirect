@@ -2,6 +2,7 @@ STDIORedirect
 =============
 
 stdio/stderr redirection for java that will also redirect stdio for native libraries
+Note: This project is still alpha.  
 
 BUILD
 ======
