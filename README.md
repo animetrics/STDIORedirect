@@ -1,7 +1,11 @@
 STDIORedirect
 =============
 
-stdio/stderr redirection for java that will also redirect stdio for native libraries.  Derived from the following blogpost:
+When working with Java applications or libraries that utilize JNI native code,
+it is non-trivial to redirect STDIO from both unmanaged and managed sides of
+the application.  This library provides a way to accomplish complete
+STDOUT/STDERR redirection, and consists of managed and unmanaged components.
+It is Derived from the following blogpost:
 http://tabbott.com/2010/09/capturing-native-code-output/
 
 Note: This project is still alpha. 
