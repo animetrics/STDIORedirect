@@ -27,16 +27,19 @@ public class STDIORedirect extends Thread {
         if(0 == s.length())
           break;
 
-        // since logger adds a new line, remove trailing new lines unless there
-        // is a possibility of newline being the only character.
+        // since logger adds a new line, remove trailing new line
 
-        else if (s.length() >= 1)
-          s = s.replaceAll("[\r\n]+$", "");
+        s = s.replaceAll("[\r]?[\n]?$", "");
 
-        if(1 == this.fileno)
-          this.log.info(s);
-        else
-          this.log.error(s);
+        // if we are left with an empty string, don't print
+
+        if(s.length() > 0)
+        {
+          if(1 == this.fileno)
+            this.log.info(s);
+          else
+            this.log.error(s);
+        }
       }
     }
     catch (Exception ex) 

@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdexcept>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -29,8 +30,7 @@ STDIORedirectNative::STDIORedirectNative(int fileno)
 
 string STDIORedirectNative::read()
 {
-	static char buf[8192];
-	ssize_t res = ::read(_filedes[0], buf, 8192);
+	ssize_t res = ::read(_filedes[0], _buf, 8192);
 
 	string data;
 	switch (res) 
@@ -41,7 +41,7 @@ string STDIORedirectNative::read()
 			throw std::runtime_error("read failed");
 			break;
 		default:
-			data = buf;  // copy buf to string and return
+			data = string(_buf, res);  // copy buf to string and return
 			return data;
 	}
 }

@@ -11,5 +11,6 @@ public class testJniStdio
 		SR.init();
 		System.out.println("from java stdout");
 		System.err.println("from java stderr");
+		Thread.sleep(1000);
 	}
 }

@@ -5,6 +5,7 @@
 class STDIORedirectNative
 {
 	int _filedes[2];
+  char _buf[8192];
 
 	public:
 

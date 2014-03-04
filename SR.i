@@ -43,7 +43,7 @@
       STDIORedirect sre = new STDIORedirect(2);
       sre.setDaemon(true);
       sre.start();
-      initialized = true;
+      SR.initialized = true;
     }
   }
 %}
