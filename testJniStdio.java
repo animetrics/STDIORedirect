@@ -1,8 +1,7 @@
 package testJniStdio;
 
 import java.io.*;
-import com.animetrics.utils.*;
-//import org.apache.log4j.Logger;
+import com.animetrics.utils.SR;
 
 public class testJniStdio
 {

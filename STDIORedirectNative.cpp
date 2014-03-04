@@ -22,7 +22,7 @@ STDIORedirectNative::STDIORedirectNative(int fileno)
 
 	// set proper buffering
 	
-  if(1 == fileno)
+	if(1 == fileno)
 		setvbuf(stdout, NULL, _IOLBF, 0); // stdout should be line buffered
 	else
 		setvbuf(stderr, NULL, _IONBF, 0); // stderr no buffer
