@@ -9,13 +9,13 @@ currently only for POSIX compliant systems (tested in Linux and OSX).  It
 consists of a native Cpp class, STDIORedirectNative, which uses pipe and dup2
 to create a new file descriptor pair with STDOUT or STDERR attached to the
 write end of the pipe.  It also provides a method for reading from the pipe,
-which can be used to capture the written output.  This class is automatically
-wrapped in JNI and Java using [SWIG](http://www.swig.org/) to provide
-STDIORedirectNative as a Java class so that output can be captured on the Java
-side.  A top level class, STDIORedirectToLog4j extends Thread to read from
-STDIORedirectNative.read() and writes the output to a Log4j logger.  A static
-method SR.init() can be used to instantiate STDIORedirectToLog4j threads for
-STDOUT and STDERR. 
+which can be used to capture the written output in a separate thread.  This
+class is automatically wrapped in JNI and Java using
+[SWIG](http://www.swig.org/) to provide STDIORedirectNative as a Java class so
+that output can be captured on the Java side.  STDIORedirectToLog4j extends
+Thread to read from STDIORedirectNative.read() and writes the output to a Log4j
+logger.  A static method SR.init() can be used to instantiate
+STDIORedirectToLog4j threads for STDOUT and STDERR. 
 
 STDIORedirectToLog4j can be followed to create another class that will redirect
 more generically to an OutputStream. 
@@ -38,7 +38,8 @@ Then to build:
 		$ make
 		$ make install
 
-make install will create Release/jar/com.animetrics.utils.jar and Release/lib/libSR.so
+make install will create Release/jar/com.animetrics.utils.jar and
+Release/lib/libSR.so (Release/lib/libSR.jnilib in OSX)
 
 USE
 =====
@@ -51,8 +52,8 @@ com.animetrics.utils.SR and call SR.init();
 Example
 ======
 
-testSTDIO.java is a small example script (doesn't test native side).  After
-running it you should have a logfile.out file with some logged stdout and
+testSTDIO.java is a small example script (doesn't test native STDIO side).
+After running it you should have a logfile.out file with some logged stdout and
 stderr output
 
 Change the log4j path in the following command and run
