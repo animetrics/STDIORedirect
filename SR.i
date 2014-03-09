@@ -32,17 +32,21 @@
 %}
 
 %pragma(java) modulecode=%{
-  public static Boolean initialized = false;
-  public static void init() throws Exception 
+  private static Boolean initialized = false;
+  private static STDIORedirectToLog4j sro = null;
+  private static STDIORedirectToLog4j sre = null;
+
+  public static synchronized void init() throws Exception 
   {
     if(!SR.initialized)
     {
-      STDIORedirect sr = new STDIORedirect(1);
-      sr.setDaemon(true);
-      sr.start();
-      STDIORedirect sre = new STDIORedirect(2);
-      sre.setDaemon(true);
-      sre.start();
+      SR.sro = new STDIORedirectToLog4j(1);
+      SR.sro.setDaemon(true);
+      SR.sro.start();
+
+      SR.sre = new STDIORedirectToLog4j(2);
+      SR.sre.setDaemon(true);
+      SR.sre.start();
       SR.initialized = true;
     }
   }

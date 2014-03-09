@@ -2,13 +2,13 @@ package com.animetrics.utils;
 
 import org.apache.log4j.Logger;
 
-public class STDIORedirect extends Thread {
+public class STDIORedirectToLog4j extends Thread {
 
   private final STDIORedirectNative srNative;
   private final Logger log;
   private final int fileno;
 
-  public STDIORedirect(int fileno)
+  public STDIORedirectToLog4j(int fileno)
   {
     this.fileno = fileno;
     this.srNative = new STDIORedirectNative(this.fileno);

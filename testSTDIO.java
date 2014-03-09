@@ -1,9 +1,9 @@
-package testJniStdio;
+package testSTDIO;
 
 import java.io.*;
 import com.animetrics.utils.SR;
 
-public class testJniStdio
+public class testSTDIO
 {
 	public static void main(String[] args) throws Exception
 	{
