@@ -10,12 +10,12 @@ consists of a native Cpp class, STDIORedirectNative, which uses pipe and dup2
 to create a new file descriptor pair with STDOUT or STDERR attached to the
 write end of the pipe.  It also provides a method for reading from the pipe,
 which can be used to capture the written output in a separate thread.  This
-class is automatically wrapped in JNI and Java using
-[SWIG](http://www.swig.org/) to provide STDIORedirectNative as a Java class so
-that output can be captured on the Java side.  STDIORedirectToLog4j extends
-Thread to read from STDIORedirectNative.read() and writes the output to a Log4j
-logger.  A static method SR.init() can be used to instantiate
-STDIORedirectToLog4j threads for STDOUT and STDERR. 
+class is mirrored in Java via JNI--automatically generated using
+[SWIG](http://www.swig.org/)--so that output can be captured on the managed
+side.  STDIORedirectToLog4j extends Thread to read from
+STDIORedirectNative and writes the output to a Log4j logger.  A static method
+SR.init() can be used to instantiate STDIORedirectToLog4j threads for STDOUT
+and STDERR. 
 
 STDIORedirectToLog4j can be followed to create another class that will redirect
 more generically to an OutputStream. 
