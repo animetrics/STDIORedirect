@@ -22,8 +22,8 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 endif()
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-#set(CMAKE_JAVA_INCLUDE_PATH /Users/marc/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar)
-set(CMAKE_JAVA_INCLUDE_PATH /home/clean/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar)
+set(CMAKE_JAVA_INCLUDE_PATH /Users/marc/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar)
+#set(CMAKE_JAVA_INCLUDE_PATH /home/clean/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar)
 
 set(CMAKE_SWIG_OUTDIR ${CMAKE_CURRENT_BINARY_DIR}/com/animetrics/utils)
 
@@ -55,8 +55,7 @@ install(TARGETS SR DESTINATION lib)
 install_jar(com.animetrics.utils jar/)
 
 # add a test client 
-#set(CMAKE_JAVA_INCLUDE_PATH ${THE_JAR_FILE} /Users/marc/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar)
-#set(CMAKE_JAVA_INCLUDE_PATH com.animetrics.utils.jar /Users/marc/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar)
-set(CMAKE_JAVA_INCLUDE_PATH com.animetrics.utils.jar /home/clean/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar)
+set(CMAKE_JAVA_INCLUDE_PATH com.animetrics.utils.jar /Users/marc/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar)
+#set(CMAKE_JAVA_INCLUDE_PATH com.animetrics.utils.jar /home/clean/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar)
 
 add_jar(testSTDIO testSTDIO.java)
