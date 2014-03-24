@@ -24,7 +24,7 @@ This project is derived from the STDIO redirect solution in the following
 blogpost: http://tabbott.com/2010/09/capturing-native-code-output/
 
 
-BUILD
+Build
 ======
 
 Requires CMake, Swig, and the CMake module for Swig. 
@@ -41,7 +41,7 @@ Then to build:
 make install will create Release/jar/com.animetrics.utils.jar and
 Release/lib/libSR.so (Release/lib/libSR.jnilib in OSX)
 
-USE
+Use
 =====
 
 Copy com.animetrics.utils.jar and libSR.so to your classpath and
