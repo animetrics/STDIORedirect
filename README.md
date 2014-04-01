@@ -10,7 +10,7 @@ currently only for POSIX compliant systems (tested in Linux and OSX).
 Use
 =====
 
-Follow *Build* instructions below then copy com.animetrics.utils.jar and
+Follow **Build** instructions below then copy com.animetrics.utils.jar and
 libSR.so to your classpath and java.library.path respectively.  In your
 application, import com.animetrics.utils.SR and call just call SR.init().  Take
 a look at testSTDIO.java for a small example.
@@ -32,6 +32,17 @@ Then to build:
 make install will create Release/jar/com.animetrics.utils.jar and
 Release/lib/libSR.so (Release/lib/libSR.jnilib in OSX)
 
+Example
+======
+
+testSTDIO.java is a small example script (doesn't test native STDIO side).
+After running it you should have a logfile.out file with some logged stdout and
+stderr output
+
+Change the log4j path in the following command and run
+
+		java -Djava.library.path=.:Release/ -classpath .:Release/testSTDIO.jar:/Users/marc/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar testSTDIO.testSTDIO
+
 Details
 =======
 The library consists of a native Cpp class, STDIORedirectNative, which uses
@@ -49,14 +60,3 @@ more generically to an OutputStream.
 
 This project is derived from the STDIO redirect solution in the following
 blogpost: http://tabbott.com/2010/09/capturing-native-code-output/
-
-Example
-======
-
-testSTDIO.java is a small example script (doesn't test native STDIO side).
-After running it you should have a logfile.out file with some logged stdout and
-stderr output
-
-Change the log4j path in the following command and run
-
-		java -Djava.library.path=.:Release/ -classpath .:Release/testSTDIO.jar:/Users/marc/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar testSTDIO.testSTDIO
